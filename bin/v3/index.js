@@ -18,10 +18,23 @@ const startFunc = ({ fileContent }) => {
         };
     });
 
+    const useMissInImport = useLines.map(loopUse => {
+        const findImport = importLines.find(element => {
+            return element.variable === loopUse.variableName
+        });
+
+        return {
+            ...loopUse,
+            isFound: findImport ? true : false,
+            usedLine: findImport
+        };
+    });
+
     return {
-        importLines: importLines,
-        useLines: useLines,
-        importMissInUse
+        importLines,
+        useLines,
+        importMissInUse,
+        useMissInImport
     };
 };
 

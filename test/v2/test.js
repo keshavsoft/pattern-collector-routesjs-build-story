@@ -9,5 +9,5 @@ const fileContent = fs.readFileSync(filePath, 'utf8');
 
 const k1 = defaultFunc({ fileContent });
 
-console.log("ssssssssss : ", k1);
+console.log("ssssssssss : ", JSON.stringify(k1, null, 2));
 
