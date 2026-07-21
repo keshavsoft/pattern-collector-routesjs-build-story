@@ -1,6 +1,6 @@
 {
   "name": "pattern-collector-routesjs-build-story",
-  "version": "1.2.2",
+  "version": "1.4.1",
   "description": "story as json",
   "keywords": [
     "pattern",
@@ -11,10 +11,7 @@
     "esm",
     "extractor"
   ],
-  "dependencies": {
-    "pattern-collector-routesjs-import-extract": "^1.3.1",
-    "pattern-collector-routesjs-use-extract": "^1.4.1"
-  },
+  "dependencies": {},
   "type": "module",
   "exports": {
     ".": "./index.js"
