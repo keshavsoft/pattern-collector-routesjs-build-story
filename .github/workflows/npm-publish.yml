@@ -58,11 +58,17 @@ jobs:
     if: needs.publish.outputs.was_published == 'true'
     runs-on: ubuntu-latest
     steps:
-      - name: Notify pattern-collector-appjs-use-extract
+      - name: Notify pattern-collector-routesjs
         run: |
           curl -i -X POST \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.REPO_DISPATCH_TOKEN }}" \
-            https://api.github.com/repos/keshavsoft/pattern-collector-appjs-use-extract/dispatches \
+            https://api.github.com/repos/keshavsoft/pattern-collector-routesjs/dispatches \
             -d '{"event_type":"dependency-updated"}'
+
+      - name: Create Notification Summary
+        run: |
+          echo "### 🔔 Dependency Notification Summary" >> $GITHUB_STEP_SUMMARY
+          echo "* **Notified Dependent Repository**: \`pattern-collector-routesjs\`" >> $GITHUB_STEP_SUMMARY
+          echo "* **Status**: ✅ Dispatched successfully" >> $GITHUB_STEP_SUMMARY
 
